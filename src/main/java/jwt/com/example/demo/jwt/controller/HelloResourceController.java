@@ -29,14 +29,14 @@ public class HelloResourceController {
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception{
         try{
                 authenticationManager.authenticate(
-                        new UsernamePasswordAuthenticationToken(authenticationRequest.getUserName(),authenticationRequest.getPassword())
+                        new UsernamePasswordAuthenticationToken(authenticationRequest.getAgentId(),authenticationRequest.getPassword())
             );
         }
         catch (BadCredentialsException ex){
             throw new Exception("Incorrect userName or password", ex);
         }
 
-        final UserDetails userDetails = myUserDetailsService.loadUserByUsername(authenticationRequest.getUserName());
+        final UserDetails userDetails = myUserDetailsService.loadUserByUsername(authenticationRequest.getAgentId());
 
         final String jwt = jwtTokenUtil.generateToken(userDetails);
         return ResponseEntity.ok(new AuthenticationResponse(jwt));

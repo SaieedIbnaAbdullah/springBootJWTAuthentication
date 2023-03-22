@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 @Table(name="user",  schema = "ekpay_agent")
 public class UserEntity {
     @Id
-    private Integer agentId;
+    private String agentId;
     private String agentName;
     @Column(length = 8)
     private String mobile_number;

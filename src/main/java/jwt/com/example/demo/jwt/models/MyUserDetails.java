@@ -12,7 +12,7 @@ public class MyUserDetails implements UserDetails {
 
     public MyUserDetails(UserEntity userEntity){
         this.password = userEntity.getPassword();
-        this.username = String.valueOf(userEntity.getAgentId());
+        this.username = userEntity.getAgentId();
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

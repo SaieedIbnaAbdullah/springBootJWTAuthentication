@@ -21,7 +21,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        UserEntity user = userRepository.findByName(userName).orElseThrow(()->new UsernameNotFoundException("Invalid user"));
+        UserEntity user = userRepository.findByAgentId(userName).orElseThrow(()->new UsernameNotFoundException("Invalid user"));
         return new MyUserDetails(user);
     }
 }
