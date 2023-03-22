@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://172.16.11.207:5432/ekpay
+    username: postgres
+    password: Ekpay@280806
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+        show_sql: true
+        format_sql: true
+        jdbc.batch_size: 50
